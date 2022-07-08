@@ -13,6 +13,19 @@ ESP32_WiFiManager::ESP32_WiFiManager(const char* name_AP, int pinLed , int pinTr
   _name_AP = name_AP;
 }
 
+void ESP32_WiFiManager::begin() {
+  _wm.setConfigPortalBlocking(false);
+  _wm.setConfigPortalTimeout(_timeout);
+  if (_wm.autoConnect(_name_AP)) {
+    Serial.println("connected...yeey :)");
+    _isConfigPortal = false;
+  }
+  else {
+    Serial.println("Configportal running");
+    _isConfigPortal = true;
+  }
+}
+
 bool ESP32_WiFiManager::isAutoConnect() {
   _wm.setConfigPortalBlocking(false);
   _wm.setConfigPortalTimeout(_timeout);

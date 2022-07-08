@@ -13,6 +13,7 @@ class ESP32_WiFiManager
 {
   public:
     ESP32_WiFiManager(const char* name_AP, int pinLed = 2, int pinTrigger = 15);
+    void begin();
     bool isAutoConnect();
     void blinkStatus(int interval);
     void running();

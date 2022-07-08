@@ -1,13 +1,13 @@
 //(1)-Inlude Library
 #include "ESP32_WiFiManager.h"
 
-ESP32_WiFiManager wm("TestLib",2,15); //WiFi AP = "TestLib", LED at Pin 2, Trigger at Pin 15
+ESP32_WiFiManager wm("ESP32Wifi-AP",2,15); //WiFi AP = "ESP32Wifi-AP", LED at Pin 2, Trigger at Pin 15
 
 
 void setup() {
   WiFi.mode(WIFI_STA);
   Serial.begin(115200);
-  wm.isAutoConnect();
+  wm.begin();
 }
 
 //====================== LOOP ===========================
