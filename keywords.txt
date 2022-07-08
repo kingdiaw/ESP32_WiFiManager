@@ -1,0 +1,4 @@
+ESP32_WiFiManager	KEYWORD1
+isAutoConnect	KEYWORD2
+blinkStatus	KEYWORD2
+running	KEYWORD2
