@@ -64,7 +64,7 @@ void ESP32_WiFiManager::running() {
     __interval_ms = _fast;
   }
 
-  if (digitalRead (_pinTrigger) == LOW) {
+  if (digitalRead (_pinTrigger) == HIGH) {
     //reset settings - for testing
     _wm.resetSettings();
 
