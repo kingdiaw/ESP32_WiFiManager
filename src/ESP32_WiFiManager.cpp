@@ -4,13 +4,14 @@
 
 WiFiManager _wm;
 
-ESP32_WiFiManager::ESP32_WiFiManager(const char* name_AP, int pinLed , int pinTrigger )
+ESP32_WiFiManager::ESP32_WiFiManager(const char* name_AP, int pinLed , int pinTrigger, int trigState)
 {
   pinMode(pinLed, OUTPUT);
   pinMode (pinTrigger, INPUT_PULLUP);
   _pinLed = pinLed;
   _pinTrigger = pinTrigger;
   _name_AP = name_AP;
+  _trigState = trigState;
 }
 
 void ESP32_WiFiManager::begin() {
@@ -64,7 +65,7 @@ void ESP32_WiFiManager::running() {
     __interval_ms = _fast;
   }
 
-  if (digitalRead (_pinTrigger) == HIGH) {
+  if (digitalRead (_pinTrigger) == _trigState) {
     //reset settings - for testing
     _wm.resetSettings();
 

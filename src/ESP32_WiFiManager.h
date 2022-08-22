@@ -12,7 +12,7 @@
 class ESP32_WiFiManager
 {
   public:
-    ESP32_WiFiManager(const char* name_AP, int pinLed = 2, int pinTrigger = 15);
+    ESP32_WiFiManager(const char* name_AP, int pinLed = 2, int pinTrigger = 15, int trigState = LOW);
     void begin();
     bool isAutoConnect();
     void blinkStatus(int interval);
@@ -21,6 +21,7 @@ class ESP32_WiFiManager
     int _pinLed;
     int _pinTrigger;
     bool _isConfigPortal;
+    int _trigState;
     const char* _name_AP;
     const int _timeout = 120;
     const int _fast = 50;
